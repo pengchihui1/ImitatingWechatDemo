@@ -1,16 +1,21 @@
-# flutter_wechat_demo
+## 项目简介
+仿照微信的页面实现的简单demo
 
-A new Flutter project.
+## 项目技术
+开发平台：vscode
+框架：flutter
+模拟器：雷神
+flutter使用插件
+```
+flutter_webview_plugin:"^0.2.1+2"
+date_format:"^1.0.4"
 
-## Getting Started
+```
 
-This project is a starting point for a Flutter application.
+## 目录结构
+loading.dart 项目打开时的加载
 
-A few resources to get you started if this is your first Flutter project:
+## 后期完善
+可添加一个后台
+后台做好后可进行交互处理
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
