@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 // import './app.dart';
-// import 'loading.dart';
+import 'loading.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 
 void main() {
@@ -28,8 +28,8 @@ class MyApp extends StatelessWidget {
           ),
           // 'search':(BuildContext context)=>new Search(),
         },
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-          //  home: new LoadingPage(),
+      // home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: new LoadingPage(),
     );
   }
 }
