@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-// import './app.dart';
+import 'app.dart';
 import 'loading.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+
+import 'package:flutter_wechat_demo/view/search/index.dart';
 
 void main() {
   runApp(MyApp());
@@ -26,10 +28,11 @@ class MyApp extends StatelessWidget {
           withZoom: true,
           withLocalStorage: true,
           ),
-          // 'search':(BuildContext context)=>new Search(),
+          'search':(BuildContext context)=>new Search(),
         },
       // home: MyHomePage(title: 'Flutter Demo Home Page'),
-      home: new LoadingPage(),
+      // home: new LoadingPage(),
+       home: new App(),
     );
   }
 }

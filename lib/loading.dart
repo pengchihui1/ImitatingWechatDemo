@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart'; //加载程序
 import 'dart:async'; // 异步
+import 'constant/constant.dart';
 
 // 直接继承无状态组件类
 class LoadingPage extends StatefulWidget {
@@ -20,9 +21,10 @@ class _LoadingSate extends State<LoadingPage> {
   }
 
   // 容器覆盖
+  @override
   Widget build(BuildContext context) {
     return new Container(
-      child: Image.asset("assets/images/loading.png",fit: BoxFit.cover,),
+      child: Image.asset(Constant.assetsImagesSignUp+"loading.png",fit: BoxFit.cover),
       // width: MediaQuery.of(context).size.width, // 屏幕宽度
       // height: MediaQuery.of(context).size.height, // 屏幕高度
       constraints: BoxConstraints.expand(), // 自适应屏幕
