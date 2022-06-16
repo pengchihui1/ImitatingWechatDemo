@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'app.dart';
+import 'home.dart';
 import 'loading.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 
 import 'package:flutter_wechat_demo/view/search/index.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -16,23 +17,23 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'wechat',
       theme: ThemeData(
-        primaryColor: Color(0xff303030),
-        scaffoldBackgroundColor: Color(0xffebebeb),
-        cardColor: Color(0xff393a3f)
-        // primarySwatch: Colors.blue,
-      ),
-      routes: <String, WidgetBuilder>{
-        '/friends':(_) => new WebviewScaffold(
-          url:"https:weixin.qq.com",
-          appBar: new AppBar(title: new Text("微信朋友圈"),),
-          withZoom: true,
-          withLocalStorage: true,
+          primaryColor: Color(0xff303030), scaffoldBackgroundColor: Color(0xffebebeb), cardColor: Color(0xff393a3f)
+          // primarySwatch: Colors.blue,
           ),
-          'search':(BuildContext context)=>new Search(),
-        },
+      routes: <String, WidgetBuilder>{
+        '/friends': (_) => new WebviewScaffold(
+              url: "https:weixin.qq.com",
+              appBar: new AppBar(
+                title: new Text("微信朋友圈"),
+              ),
+              withZoom: true,
+              withLocalStorage: true,
+            ),
+        'search': (BuildContext context) => new Search(),
+      },
       // home: MyHomePage(title: 'Flutter Demo Home Page'),
       // home: new LoadingPage(),
-       home: new App(),
+      home: new App(),
     );
   }
 }
@@ -49,6 +50,9 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
+
+
+
   void _incrementCounter() {
     setState(() {
       _counter++;
@@ -61,7 +65,8 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
+      body: 
+      Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[

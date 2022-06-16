@@ -1,6 +1,7 @@
 import 'package:azlistview/azlistview.dart';
 import 'package:flutter/material.dart';
 import 'constant/constant.dart';
+import './view/chat/message_page.dart';
 
 enum ItemType { GroupChat, AddFriends, QrCode, Payments, Help }
 
@@ -12,6 +13,19 @@ class App extends StatefulWidget {
 class MainState extends State<App> {
   // 当前索引
   int _currentIndex = 0;
+   late MessagePage _message;
+   PageController _pageController = PageController();
+   late List<MessagePage> messagePage;
+
+  currentPage() {
+    switch (_currentIndex) {
+      case 0:
+        if (_message == null) {
+          _message = MessagePage();
+        }
+        return _message;
+    }
+  }
 
   _popupMenuItem(String title, {String? imagePath, IconData? icon}) {
     return PopupMenuItem(
@@ -30,39 +44,18 @@ class MainState extends State<App> {
                   icon,
                   color: Colors.white,
                 )),
-                Container(
-                  padding: const EdgeInsets.only(left: 20.0),
-                  child: Text(
-                    title,
-                    style: TextStyle(color: Colors.white),
-                  ),
-                )
+        Container(
+          padding: const EdgeInsets.only(left: 20.0),
+          child: Text(
+            title,
+            style: TextStyle(color: Colors.white),
+          ),
+        )
       ],
     ));
   }
 
-  // 当前页面
-  void currentPage() {
-    switch (_currentIndex) {
-      case 0:
-        break;
-      case 1:
-        break;
-      case 2:
-        break;
-      case 3:
-        break;
-      default:
-        break;
-    }
-  }
 
-  // page controller 事件
-  void _onPageChanged(int index) {
-    setState(() {
-      _currentIndex = index;
-    });
-  }
 
   // 容器覆盖
   @override
@@ -80,26 +73,31 @@ class MainState extends State<App> {
             child: GestureDetector(
               onTap: () {
                 showMenu(
-                     context: context,
-                     position: RelativeRect.fromLTRB(500.0, 76.0, 10.0, 0.0),
-                      items: <PopupMenuEntry>[
-                        _popupMenuItem("发起群聊",imagePath: Constant.assetsImagesLoading+"loading.png"),
-                        _popupMenuItem("添加朋友",imagePath: Constant.assetsImagesLoading+"loading.png"),
-                        _popupMenuItem("扫一扫",imagePath: Constant.assetsImagesLoading+"loading.png"),
-                        _popupMenuItem("收付款",icon:Icons.crop_free),
-                        _popupMenuItem("帮助与反馈",icon:Icons.email),
-                      ]);
+                    context: context,
+                    position: RelativeRect.fromLTRB(500.0, 76.0, 10.0, 0.0),
+                    items: <PopupMenuEntry>[
+                      _popupMenuItem("发起群聊", imagePath: Constant.assetsImagesLoading + "loading.png"),
+                      _popupMenuItem("添加朋友", imagePath: Constant.assetsImagesLoading + "loading.png"),
+                      _popupMenuItem("扫一扫", imagePath: Constant.assetsImagesLoading + "loading.png"),
+                      _popupMenuItem("收付款", icon: Icons.crop_free),
+                      _popupMenuItem("帮助与反馈", icon: Icons.email),
+                    ]);
               },
               child: Icon(Icons.add),
             ),
           )
         ]),
-        //  body: PageView(
-        //       controller: _pageController,
-        //       onPageChanged: _onPageChanged,
-        //       children: _pageList,
-        //       physics: NeverScrollableScrollPhysics(), // 禁止滑动
-        //     ),
+        body: PageView(//轮播图
+          controller: PageController(initialPage:_currentIndex),
+          onPageChanged: (int index) {
+            setState(() {
+              _currentIndex = index;
+            });
+          },//页面监听滑动回调
+          children: currentPage(),// Page 页面展示子 Widget
+          physics: NeverScrollableScrollPhysics(), // 滑动到首页和末页动画效果
+         
+        ),
         bottomNavigationBar: new BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
           currentIndex: 1,

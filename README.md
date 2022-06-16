@@ -26,5 +26,30 @@ pubspec.yaml 项目包管理及版本设置
 ```
 flutter run --no-sound-null-safety
 或者创建文件.vscode写入内容避免报错
+```
+
+## 发送消息 开源服务
+极光M
+openfier
+
+## 参考资料
+```
+第一步
+Dart 编程语言概览：https://www.dartcn.com/guides/language/language-tour
+Dart编程语言中文官网：https://www.dartcn.com/
+fltter文章：https://blog.csdn.net/lyabc123456/article/details/108523199
+
+第二步
+Flutter 1.12 官方开发文档：https://www.bookstack.cn/read/flutter-1.2-zh/sidenav-8
+Flutter API 文档：https://www.bookstack.cn/read/flutter-1.2-zh/20f0e8800ffeea66.md
+
+第三步
+后台结合
+```
 
 
+## flutter
+在Flutter中Element树才是最终的绘制树，Element树是通过widget树来创建的（通过Widget.createElement()），widget其实就是Element的配置数据。
+
+flutter常见布局：https://www.jianshu.com/p/8687d52007aa
+小控件GestureDetector属性讲解：https://www.liujunmin.com/flutter/gesture/gesture_detector.html
